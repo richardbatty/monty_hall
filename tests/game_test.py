@@ -18,6 +18,14 @@ class GameTest(unittest.TestCase):
         game.host_open_door()
         self.assertEqual(True, door_3.is_open)
 
+    def test_case_where_contestant_guesses_correctly(self):
+        door_1, door_2, door_3 = Door('goat'), Door('car'), Door('goat')
+        game = Game(door_1, door_2, door_3)
+        game.contestant_guess = 1
+        game.host_open_door()
+        self.assertEqual(False, door_2.is_open)
+        self.assertEqual(True, door_1.is_open ^ door_3.is_open)
+
 # game = Game('goat', 'goat', 'car')
 # contestant = Contestant(guess_strategy, stick_or_switch_strategy)
 # game.contestant_guess(contestant.guess)
