@@ -12,4 +12,4 @@ class Game():
         return random.choice(openable_doors).open()
 
     def is_openable(self, door_number, door):
-        return door_number != self.contestant_guess and door.prize != 'car'
+        return door_number != self.contestant_guess and not door.has_prize
