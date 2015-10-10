@@ -22,5 +22,5 @@ class Game():
         enumerated_doors = enumerate(self.doors)
         return [i for i, door in enumerated_doors if not door.is_open]
 
-    def result(self):
-        return 'win' if self.doors[self.contestant_guess].has_prize else 'lose'
+    def contestant_has_won(self):
+        return self.doors[self.contestant_guess].has_prize

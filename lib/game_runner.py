@@ -14,8 +14,8 @@ def simulate(contestant_switches):
     no_of_trials = 5000
     for _ in range(no_of_trials):
         results.append(play_game(contestant_switches))
-    wins = [result for result in results if result == 'win']
-    losses = [result for result in results if result == 'lose']
+    wins = [result for result in results if result]
+    losses = [result for result in results if result]
 
     return len(wins) / no_of_trials
 
@@ -29,4 +29,4 @@ def play_game(contestant_switches):
 
     if contestant_switches:
         game.contestant_switch()
-    return game.result()
+    return game.contestant_has_won()

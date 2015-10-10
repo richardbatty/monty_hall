@@ -37,10 +37,10 @@ class GameTest(unittest.TestCase):
         door_1, door_2, door_3 = Door(False), Door(True), Door(False)
         game = Game(door_1, door_2, door_3)
         game.contestant_guess = 0
-        self.assertEqual('lose', game.result())
+        self.assertEqual(False, game.contestant_has_won())
 
     def test_correct_win(self):
         door_1, door_2, door_3 = Door(False), Door(True), Door(False)
         game = Game(door_1, door_2, door_3)
         game.contestant_guess = 1
-        self.assertEqual('win', game.result())
+        self.assertEqual(True, game.contestant_has_won())
