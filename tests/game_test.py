@@ -26,10 +26,30 @@ class GameTest(unittest.TestCase):
         self.assertEqual(False, door_2.is_open)
         self.assertEqual(True, door_1.is_open ^ door_3.is_open)
 
+    def test_contestant_can_switch(self):
+        door_1, door_2, door_3 = Door(False), Door(True), Door(False)
+        game = Game(door_1, door_2, door_3)
+        game.contestant_guess = 0
+        game.contestant_switch()
+        self.assertNotEqual(0, game.contestant_guess)
+
+    def test_correct_loss(self):
+        door_1, door_2, door_3 = Door(False), Door(True), Door(False)
+        game = Game(door_1, door_2, door_3)
+        game.contestant_guess = 0
+        self.assertEqual('lose', game.result())
+
+    def test_correct_win(self):
+        door_1, door_2, door_3 = Door(False), Door(True), Door(False)
+        game = Game(door_1, door_2, door_3)
+        game.contestant_guess = 1
+        self.assertEqual('win', game.result())
+
 # game = Game(False, False, True)
 # contestant = Contestant(guess_strategy, stick_or_switch_strategy)
-# game.contestant_guess(contestant.guess)
+# game.contestant_guess = contestant_guess()
 # game.host_open_door()
-# game.contestant_stick_or_switch(contestant.stick_or_switch)
+# if contestant_switch():
+#     game.contestant_switch
 # game.contestant_open_door()
 # game.result()
