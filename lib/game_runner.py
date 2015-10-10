@@ -23,7 +23,7 @@ def play_game(contestant_switches):
     random.shuffle(doors)
 
     game = Game(*doors)
-    game.contestant_guess = 0
+    game.contestant_guess = doors[0]
     game.host_open_door()
 
     if contestant_switches:
