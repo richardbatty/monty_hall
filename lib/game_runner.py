@@ -14,10 +14,9 @@ def simulate(contestant_switches):
     no_of_trials = 5000
     for _ in range(no_of_trials):
         results.append(play_game(contestant_switches))
-    wins = [result for result in results if result]
-    losses = [result for result in results if result]
+    wins = results.count(True)
 
-    return len(wins) / no_of_trials
+    return wins / no_of_trials
 
 def play_game(contestant_switches):
     doors = [Door(False), Door(False), Door(True)]
