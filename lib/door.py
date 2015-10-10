@@ -1,7 +1,8 @@
 class Door():
 
     def __init__(self, prize):
-        pass
+        self.is_open = False
+        self.prize = prize
 
-    def is_open(self):
-        return True
+    def open(self):
+        self.is_open = not self.is_open
