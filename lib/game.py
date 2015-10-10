@@ -11,7 +11,7 @@ class Game():
         return random.choice(openable_doors).open()
 
     def contestant_switch(self):
-        choosable_doors = [door_no for door_no in self.closed_doors() if door_no != self.contestant_guess]
+        choosable_doors = [door for door in self.closed_doors() if door != self.contestant_guess]
         self.contestant_guess = random.choice(choosable_doors)
 
     def is_openable_by_host(self, door):
