@@ -44,12 +44,3 @@ class GameTest(unittest.TestCase):
         game = Game(door_1, door_2, door_3)
         game.contestant_guess = 1
         self.assertEqual('win', game.result())
-
-# game = Game(False, False, True)
-# contestant = Contestant(guess_strategy, stick_or_switch_strategy)
-# game.contestant_guess = contestant_guess()
-# game.host_open_door()
-# if contestant_switch():
-#     game.contestant_switch
-# game.contestant_open_door()
-# game.result()
