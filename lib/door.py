@@ -5,4 +5,4 @@ class Door():
         self.prize = prize
 
     def open(self):
-        self.is_open = not self.is_open
+        self.is_open = True

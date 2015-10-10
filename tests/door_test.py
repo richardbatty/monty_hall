@@ -15,3 +15,9 @@ class DoorTest(unittest.TestCase):
         door = Door('goat')
         door.open()
         self.assertEqual(True, door.is_open)
+
+    def test_calling_open_twice_doesnt_close_the_door(self):
+        door = Door('goat')
+        door.open()
+        door.open()
+        self.assertEqual(True, door.is_open)
